@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* COLORS: change these to re-theme the whole site. */
+:root {
+  --page: #f6f7fb; --card: #ffffff; --ink: #101828; --mute: #566074;
+  --line: #e1e5ee; --brand: #3442e8; --good: #0e9f78;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --page: #0d1117; --card: #161b24; --ink: #f1f3f8; --mute: #9aa3b5; --line: #262d3a; --brand: #4f5ff0; --good: #3dd6a6; }
+}
+body { background: var(--page); color: var(--ink); }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* Soft tinted backgrounds (Tailwind can't add transparency to our CSS-variable colors). */
+.tint-brand { background: color-mix(in srgb, var(--brand) 10%, transparent); }
+.tint-good { background: color-mix(in srgb, var(--good) 10%, transparent); }
+.header-bg { background: color-mix(in srgb, var(--page) 90%, transparent); }
